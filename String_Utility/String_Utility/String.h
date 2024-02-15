@@ -10,6 +10,8 @@ public:
 
 	~String();
 
+	char str[];
+
 public:
 	size_t Length() const;
 	char& CharacterAt(size_t _index);
