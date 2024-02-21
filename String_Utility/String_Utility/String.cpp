@@ -5,25 +5,34 @@ using namespace std;
 
 String::String()
 {
-	str[15] = {};
+	str = nullptr;
+	str = new char[1];
+	str[0] = '\0';
 }
 
 String::String(const char* _str)
 {
-	const char* ptArray = _str;
-	for (int i = 0; i < 15; i++)
-	{
-		str[i] = *(ptArray + i);
-	}
+	// copy string into char* array
+	int size = (int)strlen(_str);
+	str = new char[size + 1];
+	memcpy(str, _str, size + 1);
+
+
 	
 }
 
 String::String(const String& _other)
 {
+	// copy string into char* array
+	int size = (int)strlen(_other.str);
+	str = new char[size + 1];
+	memcpy(str, _other.str, size + 1);
 }
 
 String::~String()
 {
+	delete str;
+	str = nullptr;
 }
 
 size_t String::Length() const
@@ -33,7 +42,7 @@ size_t String::Length() const
 
 char& String::CharacterAt(size_t _index)
 {
-	cout << strlen(str);
+	
 	if (_index < 0 || _index > strlen(str))
 	{
 		
@@ -52,4 +61,25 @@ const char& String::CharacterAt(size_t _index) const
 
 	const char& charAT = str[_index];
 	return charAT;
+}
+
+bool String::EqualTo(const String& _other) const
+{
+	if (strcmp(str, _other.str) == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+
+String& String::Append(const String& _str)
+{
+	int length = (int)strlen(str) + (int)strlen(_str.str);
+	strcat_s(str, length + 1, _str.str);
+	return *this;
+	
 }

@@ -6,39 +6,83 @@
 using namespace std;
 
 void GetLength();
-void GetCharAt();
+void GetCharAt(int index);
 void ConstGetCharAt();
+void StringCompare(const char* a, const char* b);
+void StringAppend(const char* a, const char* b);
 
 int main()
 {
     
     //GetLength();
-    GetCharAt();
-    
-
+    //GetCharAt(4);
+    //StringCompare("Hello", "Hello");
+    StringAppend("Hello", "World");
 
 }
 
 void GetLength()
 {
-    char name[15] = "Hello";
+    char name[] = "Hello";
     String* str = new String(name);
     size_t length = str->Length();
-    cout << length;
+    cout << length << endl;
+
+    delete str;
+    str = nullptr;
 }
 
-void GetCharAt()
+void GetCharAt(int index)
 {
-    char name[15] = "Hello";
+    char name[] = "Hello";
     String* str = new String(name);
-    
-    cout << str->CharacterAt(4);
+    char charAt = str->CharacterAt(index);
+    cout << charAt << endl;
+
+    delete str;
+    str = nullptr;
 }
 
 void ConstGetCharAt()
 {
-    char name[15] = "Hello";
+    char name[] = "Hello";
     String* str = new String(name);
 
     cout << str->CharacterAt(0);
+
+    delete str;
+    str = nullptr;
+}
+
+void StringCompare(const char* a ,const char* b)
+{
+    const char* name[] = { a };
+    const char* name2[] = { b };
+    String* str = new String(*name);
+    String* str2 = new String(*name2);
+    bool compare = str->EqualTo(*str2);
+    if (compare)
+    {
+        cout << "true" << endl;
+    }
+    else
+    {
+        cout << "false" << endl;
+    }
+     
+
+}
+
+void StringAppend(const char* a, const char* b)
+{
+    const char* name = { a };
+    const char* name2 = { b };
+    String* str = new String(name);
+    String* str2 = new String(name2);
+    str->Append(*str2);
+    
+    
+    cout << str->str << endl;
+
+   
 }

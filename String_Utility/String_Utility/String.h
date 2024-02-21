@@ -10,7 +10,8 @@ public:
 
 	~String();
 
-	char str[];
+	char* str;
+	
 
 public:
 	size_t Length() const;
