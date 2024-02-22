@@ -59,8 +59,16 @@ char& String::CharacterAt(size_t _index)
 const char& String::CharacterAt(size_t _index) const
 {
 
-	const char& charAT = str[_index];
-	return charAT;
+	if (_index < 0 || _index > strlen(str))
+	{
+
+		return str[strlen(str)];
+	}
+	else
+	{
+
+		return str[_index];
+	}
 }
 
 bool String::EqualTo(const String& _other) const
@@ -82,4 +90,35 @@ String& String::Append(const String& _str)
 	strcat_s(str, length + 1, _str.str);
 	return *this;
 	
+}
+
+String& String::Prepend(const String& _str)
+{
+	int length = (int)strlen(str) + (int)strlen(_str.str);
+	strcat_s(_str.str, length + 1, str);
+	str = _str.str;
+	return *this;
+}
+
+const char* String::CStr() const
+{
+	return str;
+}
+
+String& String::ToLower()
+{
+	for (size_t i = 0; i < Length(); i++)
+	{
+		str[i] = tolower(str[i]);
+	}
+	return *this;
+}
+
+String& String::ToUpper()
+{
+	for (size_t i = 0; i < Length(); i++)
+	{
+		str[i] = toupper(str[i]);
+	}
+	return *this;
 }

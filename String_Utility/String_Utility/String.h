@@ -10,7 +10,7 @@ public:
 
 	~String();
 
-	char* str;
+	
 	
 
 public:
@@ -46,8 +46,6 @@ public:
 	const char& operator[](size_t _index) const;
 
 private:
-	/*
-	* Put your internal data structures and members here
-	*/
+	char* str;
 };
 

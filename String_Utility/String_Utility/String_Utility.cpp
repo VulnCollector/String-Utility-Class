@@ -5,53 +5,60 @@
 #include "String.h"
 using namespace std;
 
-void GetLength();
-void GetCharAt(int index);
-void ConstGetCharAt();
+void GetLength(const char* a);
+void GetCharAt(const char * a, int index);
+void ConstGetCharAt(const char* a, int index);
 void StringCompare(const char* a, const char* b);
 void StringAppend(const char* a, const char* b);
+void StringPrepend(const char* a, const char* b);
+void StringCstr(const char* a);
+void ToLower(const char* a);
+void ToUpper(const char* a);
+
 
 int main()
 {
     
-    //GetLength();
-    //GetCharAt(4);
+    //GetLength("Hello");
+    //GetCharAt("Hello", 4);
+    //ConstGetCharAt("Hello", 3);
     //StringCompare("Hello", "Hello");
-    StringAppend("Hello", "World");
-
+    //StringAppend("Hello", "World");
+    //StringPrepend("Hello", "World");
+    //StringCstr("Hello");
+    //ToLower("HELLO");
+    //ToUpper("hello");
+    
 }
 
-void GetLength()
+void GetLength(const char* a)
 {
-    char name[] = "Hello";
+    const char* name = { a };
     String* str = new String(name);
     size_t length = str->Length();
     cout << length << endl;
 
-    delete str;
-    str = nullptr;
+    
 }
 
-void GetCharAt(int index)
+void GetCharAt(const char* a, int index)
 {
-    char name[] = "Hello";
+    const char* name = {a};
     String* str = new String(name);
     char charAt = str->CharacterAt(index);
     cout << charAt << endl;
 
-    delete str;
-    str = nullptr;
+    
 }
 
-void ConstGetCharAt()
+void ConstGetCharAt(const char* a, int index)
 {
-    char name[] = "Hello";
+    const char* name = { a };
     String* str = new String(name);
+    char charAt = str->CharacterAt(index);
+    cout << charAt << endl;
 
-    cout << str->CharacterAt(0);
-
-    delete str;
-    str = nullptr;
+    
 }
 
 void StringCompare(const char* a ,const char* b)
@@ -82,7 +89,42 @@ void StringAppend(const char* a, const char* b)
     str->Append(*str2);
     
     
-    cout << str->str << endl;
+    cout << str->CStr() << endl;
 
    
+}
+
+void StringPrepend(const char* a, const char* b)
+{
+    const char* name = { a };
+    const char* name2 = { b };
+    String* str = new String(name);
+    String* str2 = new String(name2);
+    str->Prepend(*str2);
+
+
+    cout << str->CStr() << endl;
+}
+
+void StringCstr(const char* a)
+{
+    const char* name = { a };
+    String* str = new String(name);
+    cout << str->CStr() << endl;
+}
+
+void ToLower(const char* a)
+{
+    const char* name = { a };
+    String* str = new String(name);
+    str->ToLower();
+    cout << str->CStr() << endl;
+}
+
+void ToUpper(const char* a)
+{
+    const char* name = { a };
+    String* str = new String(name);
+    str->ToUpper();
+    cout << str->CStr() << endl;
 }
