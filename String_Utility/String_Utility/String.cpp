@@ -122,3 +122,108 @@ String& String::ToUpper()
 	}
 	return *this;
 }
+
+size_t String::Find(const String& _str)
+{
+	return Find(0, _str);
+}
+
+size_t String::Find(size_t _startIndex, const String& _str)
+{
+	if (_startIndex >= Length())
+	{
+		return -1;
+	}
+	const char* pos = strstr(str + _startIndex, _str.str);
+	if (pos != nullptr)
+	{
+		return pos - str;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+String& String::Replace(const String& _find, const String& _replace)
+{
+	size_t startPos = 0;
+	while ((startPos = Find(startPos, _find)) != -1)
+	{
+		string Replace = string(str, str + startPos) + _replace.CStr() + string(str + startPos + _find.Length());
+
+		char* newStr = new char[Replace.length() + 1];
+
+		strcpy_s(newStr,strlen(newStr + 1), Replace.c_str());
+
+		str = newStr;
+
+		startPos += _replace.Length();
+	}
+
+	return *this;
+}
+
+String& String::ReadFromConsole()
+{
+	
+	string input;
+	getline(cin, input);
+	char* newStr = new char[input.length() + 1];
+	strcpy_s(newStr, strlen(newStr + 1), input.c_str());
+	str = newStr;
+	return *this;
+}
+
+String& String::WriteToConsole()
+{
+	cout << str;
+	return *this;
+}
+
+bool String::operator==(const String& _other)
+{
+	
+	return this->EqualTo(_other);
+}
+
+bool String::operator!=(const String& _other)
+{
+	return !(*this == _other);
+}
+
+String& String::operator=(const String& _str)
+{
+	
+	str = new char[_str.Length() + 1];
+	strcpy_s(str, this->Length() + 1, _str.str);
+	
+	return *this;
+		
+}
+
+char& String::operator[](size_t _index)
+{
+	
+	return str[_index];
+}
+
+const char& String::operator[](size_t _index) const
+{
+	return str[_index];
+}
+
+bool String::operator<(const String& _other)
+{
+	return strcmp(str, _other.str) < 0;
+}
+
+String& String::operator+(const String& _str)
+{
+	return this->Append(_str);
+}
+
+String& String::operator+=(const String& _str)
+{
+	return this->Append(_str);
+}
