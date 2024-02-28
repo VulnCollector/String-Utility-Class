@@ -33,31 +33,31 @@ void PlusEquals(const char* a, const char* b);
 int main()
 {
     
-    //GetLength("Hello");
-    //GetCharAt("Hello", 4);
-    //ConstGetCharAt("Hello", 3);
-    //StringCompare("Hello", "Hello");
-    //StringAppend("Hello", "World");
-    //StringPrepend("Hello", "World");
-    //StringCstr("Hello");
-    //ToLower("HELLO");
-    //ToUpper("hello");
-    //StringFind("Hello World", "World");
-    //StringFindIndex("Hello World", "World", 8);
-    //StringReplace("Hello World Hello World", "World", "Hello");
-    //ReadFromConsole();
-    //WriteToConsole("Hello World");
-    //Equals("Hello", "Hello");
-    //NotEquals("Hello", "World");
-    //StringAssign("Hello", "World");
-    //StringIndex("Hello", 4);
-    //ConstStringIndex("Hello", 4);
-    //LessThan("Hello", "World");
-    //Add("Hello", "World");
-    //PlusEquals("Hello", "World");
+    GetLength("Hello");
+    GetCharAt("Hello", 4);
+    ConstGetCharAt("Hello", 3);
+    StringCompare("Hello", "Hello");
+    StringAppend("Hello", "World");
+    StringPrepend("Hello", "World");
+    StringCstr("Hello");
+    ToLower("HELLO");
+    ToUpper("hello");
+    StringFind("Hello World", "World");
+    StringFindIndex("Hello World", "World", 8);
+    StringReplace("Hello World Hello World", "World", "Hello");
+    ReadFromConsole();
+    WriteToConsole("Hello World");
+    Equals("Hello", "Hello");
+    NotEquals("Hello", "World");
+    StringAssign("Hello", "World");
+    StringIndex("Hello", 4);
+    ConstStringIndex("Hello", 4);
+    LessThan("Hello", "World");
+    Add("Hello", "World");
+    PlusEquals("Hello", "World");
 }
 
-void GetLength(const char* a)
+void GetLength(const char* a) //testing Length Function
 {
     
     String* str = new String(a);
@@ -67,7 +67,7 @@ void GetLength(const char* a)
     
 }
 
-void GetCharAt(const char* a, int index)
+void GetCharAt(const char* a, int index) //testing CharacterAt Function
 {
    
     String* str = new String(a);
@@ -87,7 +87,7 @@ void ConstGetCharAt(const char* a, int index)
     
 }
 
-void StringCompare(const char* a ,const char* b)
+void StringCompare(const char* a ,const char* b) //testing EqualTo Function
 {
     
     String* str = new String(a);
@@ -105,7 +105,7 @@ void StringCompare(const char* a ,const char* b)
 
 }
 
-void StringAppend(const char* a, const char* b)
+void StringAppend(const char* a, const char* b) //testing Append Function
 {
     
     String* str = new String(a);
@@ -118,7 +118,7 @@ void StringAppend(const char* a, const char* b)
    
 }
 
-void StringPrepend(const char* a, const char* b)
+void StringPrepend(const char* a, const char* b) //testing Prepend Function
 {
     
     String* str = new String(a);
@@ -129,14 +129,14 @@ void StringPrepend(const char* a, const char* b)
     cout << str->CStr() << endl;
 }
 
-void StringCstr(const char* a)
+void StringCstr(const char* a) //testing CStr Function
 {
    
     String* str = new String(a);
     cout << str->CStr() << endl;
 }
 
-void ToLower(const char* a)
+void ToLower(const char* a) //testing ToLower Function
 {
     
     String* str = new String(a);
@@ -144,7 +144,7 @@ void ToLower(const char* a)
     cout << str->CStr() << endl;
 }
 
-void ToUpper(const char* a)
+void ToUpper(const char* a) //testing ToUpper Function
 {
    
     String* str = new String(a);
@@ -152,7 +152,7 @@ void ToUpper(const char* a)
     cout << str->CStr() << endl;
 }
 
-void StringFind(const char* a, const char* b)
+void StringFind(const char* a, const char* b) //testing Find Function
 {
    
     String* str = new String(a);
@@ -160,7 +160,7 @@ void StringFind(const char* a, const char* b)
     cout << find << endl;
 }
 
-void StringFindIndex(const char* a, const char* b, int index)
+void StringFindIndex(const char* a, const char* b, int index) //testing Find Function with index
 {
     
     String* str = new String(a);
@@ -168,7 +168,7 @@ void StringFindIndex(const char* a, const char* b, int index)
     cout << find << endl;
 }
 
-void StringReplace(const char* a, const char* b, const char* c)
+void StringReplace(const char* a, const char* b, const char* c) //testing Replace Function
 {
     
     String* str = new String(a);
@@ -178,21 +178,21 @@ void StringReplace(const char* a, const char* b, const char* c)
     cout << str->CStr() << endl;
 }
 
-void ReadFromConsole()
+void ReadFromConsole() //testing ReadFromConsole Function
 {
     String* str = new String();
     str->ReadFromConsole();
     cout << str->CStr() << endl;
 }
 
-void WriteToConsole(const char* a)
+void WriteToConsole(const char* a) //testing WriteToConsole Function
 {
     
     String* str = new String(a);
     str->WriteToConsole();
 }
 
-void Equals(const char* a, const char* b)
+void Equals(const char* a, const char* b) //testing == operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -207,7 +207,7 @@ void Equals(const char* a, const char* b)
     }
 }
 
-void NotEquals(const char* a, const char* b)
+void NotEquals(const char* a, const char* b) //testing != operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -222,7 +222,7 @@ void NotEquals(const char* a, const char* b)
     }
 }
 
-void StringAssign(const char* a, const char* b)
+void StringAssign(const char* a, const char* b) //testing = operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -230,7 +230,7 @@ void StringAssign(const char* a, const char* b)
     cout << str->CStr() << endl;
 }
 
-void StringIndex(const char* a, int index)
+void StringIndex(const char* a, int index) //testing [] operator overload
 {
     String* str = new String(a);
     char charAt = (*str)[index];
@@ -244,7 +244,7 @@ void ConstStringIndex(const char* a, int index)
     cout << charAt << endl;;
 }
 
-void LessThan(const char* a, const char* b)
+void LessThan(const char* a, const char* b) //testing < operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -259,7 +259,7 @@ void LessThan(const char* a, const char* b)
     }
 }
 
-void Add(const char* a, const char* b)
+void Add(const char* a, const char* b) //testing + operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -268,7 +268,7 @@ void Add(const char* a, const char* b)
     cout << str3->CStr() << endl;
 }
 
-void PlusEquals(const char* a, const char* b)
+void PlusEquals(const char* a, const char* b) //testing += operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
