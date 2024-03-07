@@ -161,11 +161,7 @@ String& String::Replace(const String& _find, const String& _replace)
 	{
 		string Replace = string(str, str + startPos) + _replace.CStr() + string(str + startPos + _find.Length());
 
-		char* newStr = new char[Replace.length() + 1];
-
-		strcpy_s(newStr,strlen(newStr + 1), Replace.c_str());
-
-		str = newStr;
+		*this = Replace.c_str();
 
 		startPos += _replace.Length();
 	}
@@ -175,12 +171,17 @@ String& String::Replace(const String& _find, const String& _replace)
 
 String& String::ReadFromConsole()
 {
-	//get the user input and input it into the char array
+	const size_t maxInputSize = 1024;
 	string input;
 	getline(cin, input);
-	char* newStr = new char[input.length() + 1];
-	strcpy_s(newStr, strlen(newStr + 1), input.c_str());
-	str = newStr;
+	if (input.size() > maxInputSize) //if the input is longer than the max input size clear input and try again.
+	{
+		cout << "Please input a valid command (1024 characters max)" << endl;
+		input = "";
+		getline(cin, input);
+	}
+
+	*this = input.c_str();
 	return *this;
 }
 
