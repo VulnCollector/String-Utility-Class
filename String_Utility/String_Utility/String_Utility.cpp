@@ -7,6 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
 size_t GetLength(const char* a);
@@ -41,7 +42,7 @@ int main()
     if (GetLength("Hello") == 5)
     {
         Successful += 5;
-        Tests[0] = "Test 1: Length Successful \n";
+        Tests[0] = "Test 1: Length Successful";
         //Tests.push_back("Test 1: Length Successful");
     }
     else Tests[0] = "Test 1: Length Failed";
@@ -60,14 +61,14 @@ int main()
     }
     else Tests[2] = "Test 3: EqualTo Successful";
 
-    if (StringAppend("Hello", "World").CStr() == "HelloWorld")
+    if (StringAppend("Hello", "World") == "HelloWorld")
     {
         Successful += 5;
         Tests[3] = "Test 4: Append Successful";
     }
     else Tests[3] = "Test 4: Append Failed";
 
-    if (StringPrepend("Hello", "World").CStr() == "WorldHello")
+    if (StringPrepend("Hello", "World") == "WorldHello")
     {
         Successful += 5;
         Tests[4] = "Test 5: Prepend Successful";
@@ -186,18 +187,33 @@ int main()
     struct tm newtime;
     time_t now = time(0);
     localtime_s(&newtime, &now);
+    int min = newtime.tm_min;
+    int sec = newtime.tm_sec;
+   
+
     
     if (file.is_open())
     {
         file << "Date: " << newtime.tm_mday << "/" << 1 + newtime.tm_mon << "/" << 1900 + newtime.tm_year << " ";
-        file << "Time: " << newtime.tm_hour << ":" << newtime.tm_min << ":" << newtime.tm_sec << " ";
+        file << "Time: " << newtime.tm_hour << ":";
+        if (min >= 0 && min < 10)
+        {
+            file << setw(2) << setfill('0') << min << ":";
+        }
+        else file << min << ":";
+        if (sec >= 0 && sec < 10)
+        {
+            file << setw(2) << setfill('0') << sec << ":";
+        }
+        else file << newtime.tm_sec << " ";
+        
         file << "Successful Tests: " << Successful << "%" << endl;
 
         for (int i = 0; i < Tests.size(); i++)
         {
             file << Tests[i] << endl;
         }
-
+        file << endl;
     }
     else cout << "File not open.";
     file.close();
