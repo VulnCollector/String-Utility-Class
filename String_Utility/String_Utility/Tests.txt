@@ -1,21 +1,22 @@
-Date: 8/3/2024 Time: 16:69:11 Successful Tests: 90%
-ngth Successful
-aracterAt Successful
-ualTo Successful
-pend Failed
-epend Failed
-tr Successful
-Lower Successful
-Upper Successful
-nd Successful
-indAtIndex Successful
-eplace Successful
-eadFromConsole Successful
-riteToConsole Successful
-= Operator Overload Successful
-= Operator Overload Successful
- Operator Overload Successful
-] Operator Overload Successful
- Operator Overload Successful
- Operator Overload Successful
-= Operator Overload Successful
+Date: 8/3/2024 Time: 11:57:1 Successful Tests: 90%
+Test 1: Length Successful 
+
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Failed
+Test 5: Prepend Failed
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Successful
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful

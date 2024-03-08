@@ -35,149 +35,150 @@ bool PlusEquals(const char* a, const char* b);
 
 int main()
 {
-    vector<string> Tests = { 20, "" };
+    vector<string> Tests = { 20, " " };
     float Successful = 0.00f;
 
     if (GetLength("Hello") == 5)
     {
         Successful += 5;
-        Tests[0] = "Test 1: Length Successful" + '\n';
+        Tests[0] = "Test 1: Length Successful \n";
+        //Tests.push_back("Test 1: Length Successful");
     }
-    else Tests[0] = "Test 1: Length Failed" + '\n';
+    else Tests[0] = "Test 1: Length Failed";
 
     if (GetCharAt("Hello", 4) == 'o')
     {
         Successful += 5;
-        Tests[1] = "Test 2: CharacterAt Successful" + '\n';
+        Tests[1] = "Test 2: CharacterAt Successful";
     }
-    else Tests[1] = "Test 2: CharacterAt Failed" + '\n';
+    else Tests[1] = "Test 2: CharacterAt Failed";
     
     if (StringCompare("Hello", "Hello"))
     {
         Successful += 5;
-        Tests[2] = "Test 3: EqualTo Successful" + '\n';
+        Tests[2] = "Test 3: EqualTo Successful";
     }
-    else Tests[2] = "Test 3: EqualTo Successful" + '\n';
+    else Tests[2] = "Test 3: EqualTo Successful";
 
     if (StringAppend("Hello", "World").CStr() == "HelloWorld")
     {
         Successful += 5;
-        Tests[3] = "Test 4: Append Successful" + '\n';
+        Tests[3] = "Test 4: Append Successful";
     }
-    else Tests[3] = "Test 4: Append Failed" + '\n';
+    else Tests[3] = "Test 4: Append Failed";
 
     if (StringPrepend("Hello", "World").CStr() == "WorldHello")
     {
         Successful += 5;
-        Tests[4] = "Test 5: Prepend Successful" + '\n';
+        Tests[4] = "Test 5: Prepend Successful";
     }
-    else Tests[4] = "Test 5: Prepend Failed" + '\n';
+    else Tests[4] = "Test 5: Prepend Failed";
 
     String* Hello = new String("Hello");
     if (StringCstr("Hello") == *Hello->CStr())
     {
         Successful += 5;
-        Tests[5] = "Test 6: CStr Successful" + '\n';
+        Tests[5] = "Test 6: CStr Successful";
     }
-    else Tests[5] = "Test 6: CStr Failed" + '\n';
+    else Tests[5] = "Test 6: CStr Failed";
 
     if (ToLower("HELLO") == "hello")
     {
         Successful += 5;
-        Tests[6] = "Test 7: ToLower Successful" + '\n';
+        Tests[6] = "Test 7: ToLower Successful";
     }
-    else Tests[6] = "Test 7: ToLower Failed" + '\n';
+    else Tests[6] = "Test 7: ToLower Failed";
     
     if (ToUpper("hello") == "HELLO")
     {
         Successful += 5;
-        Tests[7] = "Test 8: ToUpper Successful" + '\n';
+        Tests[7] = "Test 8: ToUpper Successful";
     }
-    else  Tests[7] = "Test 8: ToUpper Failed" + '\n';
+    else  Tests[7] = "Test 8: ToUpper Failed";
 
     if (StringFind("Hello World", "World") == 6)
     {
         Successful += 5;
-        Tests[8] = "Test 9: Find Successful" + '\n';
+        Tests[8] = "Test 9: Find Successful";
     }
-    else Tests[8] = "Test 9: Find Failed" + '\n';
+    else Tests[8] = "Test 9: Find Failed";
     
     if (StringFindIndex("Hello World", "World", 8) == -1)
     {
         Successful += 5;
-        Tests[9] = "Test 10: FindAtIndex Successful" + '\n';
+        Tests[9] = "Test 10: FindAtIndex Successful";
     }
-    else Tests[9] = "Test 10: FindAtIndex Failed" + '\n';
+    else Tests[9] = "Test 10: FindAtIndex Failed";
 
     if (StringReplace("Hello World Hello World", "World", "Hello") == "Hello Hello Hello Hello")
     {
         Successful += 5;
-        Tests[10] = "Test 11: Replace Successful" + '\n';
+        Tests[10] = "Test 11: Replace Successful";
     }
-    else Tests[10] = "Test 11: Replace Failed" + '\n';
+    else Tests[10] = "Test 11: Replace Failed";
 
     if (ReadFromConsole() != "")
     {
         Successful += 5;
-        Tests[11] = "Test 12: ReadFromConsole Successful" + '\n';
+        Tests[11] = "Test 12: ReadFromConsole Successful";
     }
-    else Tests[11] = "Test 12: ReadFromConsole Failed" + '\n';
+    else Tests[11] = "Test 12: ReadFromConsole Failed";
 
     if (WriteToConsole("Hello World"))
     {
         Successful += 5;
-        Tests[12] = "Test 13: WriteToConsole Successful" + '\n';
+        Tests[12] = "Test 13: WriteToConsole Successful";
     }
-    else Tests[12] = "Test 13: WriteToConsole Failed" + '\n';
+    else Tests[12] = "Test 13: WriteToConsole Failed";
 
     if (Equals("Hello", "Hello"))
     {
         Successful += 5;
-        Tests[13] = "Test 14: == Operator Overload Successful" + '\n';
+        Tests[13] = "Test 14: == Operator Overload Successful";
     }
-    else Tests[13] = "Test 14: == Operator Overload Failed" + '\n';
+    else Tests[13] = "Test 14: == Operator Overload Failed";
     
     if (NotEquals("Hello", "World"))
     {
         Successful += 5;
-        Tests[14] = "Test 15: != Operator Overload Successful" + '\n';
+        Tests[14] = "Test 15: != Operator Overload Successful";
     }
-    else Tests[14] = "Test 15: != Operator Overload Failed" + '\n';
+    else Tests[14] = "Test 15: != Operator Overload Failed";
 
     if (StringAssign("Hello", "World"))
     {
         Successful += 5;
-        Tests[15] = "Test 16: = Operator Overload Successful" + '\n';
+        Tests[15] = "Test 16: = Operator Overload Successful";
     }
-    else Tests[15] = "Test 16: = Operator Overload Failed" + '\n';
+    else Tests[15] = "Test 16: = Operator Overload Failed";
 
     if (StringIndex("Hello", 4) == 'o')
     {
         Successful += 5;
-        Tests[16] = "Test 17: [] Operator Overload Successful" + '\n';
+        Tests[16] = "Test 17: [] Operator Overload Successful";
     }
-    else Tests[16] = "Test 17: [] Operator Overload Failed" + '\n';
+    else Tests[16] = "Test 17: [] Operator Overload Failed";
 
     if (LessThan("Hello", "World"))
     {
         Successful += 5;
-        Tests[17] = "Test 18: < Operator Overload Successful" + '\n';
+        Tests[17] = "Test 18: < Operator Overload Successful";
     }
-    else Tests[17] = "Test 18: < Operator Overload Failed" + '\n';
+    else Tests[17] = "Test 18: < Operator Overload Failed";
 
     if (Add("Hello", "World") == "HelloWorld")
     {
         Successful += 5;
-        Tests[18] = "Test 19: + Operator Overload Successful" + '\n';
+        Tests[18] = "Test 19: + Operator Overload Successful";
     }
-    else Tests[18] = "Test 19: + Operator Overload Failed" + '\n';
+    else Tests[18] = "Test 19: + Operator Overload Failed";
 
     if (PlusEquals("Hello", "World"))
     {
         Successful += 5;
-        Tests[19] = "Test 20: += Operator Overload Successful" + '\n';
+        Tests[19] = "Test 20: += Operator Overload Successful";
     }
-    else Tests[19] = "Test 20: += Operator Overload Failed" + '\n';
+    else Tests[19] = "Test 20: += Operator Overload Failed";
 
     fstream file;
 
@@ -189,7 +190,7 @@ int main()
     if (file.is_open())
     {
         file << "Date: " << newtime.tm_mday << "/" << 1 + newtime.tm_mon << "/" << 1900 + newtime.tm_year << " ";
-        file << "Time: " << 5 + newtime.tm_hour << ":" << 30 + newtime.tm_min << ":" << newtime.tm_sec << " ";
+        file << "Time: " << newtime.tm_hour << ":" << newtime.tm_min << ":" << newtime.tm_sec << " ";
         file << "Successful Tests: " << Successful << "%" << endl;
 
         for (int i = 0; i < Tests.size(); i++)
