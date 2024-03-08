@@ -152,3 +152,201 @@ Test 18: < Operator Overload Successful
 Test 19: + Operator Overload Successful
 Test 20: += Operator Overload Successful
 
+Date: 8/3/2024 Time: 12:30:34 Successful Tests: 85%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Failed
+Test 12: ReadFromConsole Failed
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Failed
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 12:42:50 Successful Tests: 85%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Failed
+Test 12: ReadFromConsole Failed
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Failed
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 12:46:54 Successful Tests: 95%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Failed
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 12:47:35 Successful Tests: 100%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Successful
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 12:56:26 Successful Tests: 95%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Failed
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 12:57:28 Successful Tests: 90%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Failed
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Failed
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 13:02:36 Successful Tests: 100%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Successful
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 13:06:08:Successful Tests: 100%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Successful
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+
+Date: 8/3/2024 Time: 13:09:59 Successful Tests: 100%
+Test 1: Length Successful
+Test 2: CharacterAt Successful
+Test 3: EqualTo Successful
+Test 4: Append Successful
+Test 5: Prepend Successful
+Test 6: CStr Successful
+Test 7: ToLower Successful
+Test 8: ToUpper Successful
+Test 9: Find Successful
+Test 10: FindAtIndex Successful
+Test 11: Replace Successful
+Test 12: ReadFromConsole Successful
+Test 13: WriteToConsole Successful
+Test 14: == Operator Overload Successful
+Test 15: != Operator Overload Successful
+Test 16: = Operator Overload Successful
+Test 17: [] Operator Overload Successful
+Test 18: < Operator Overload Successful
+Test 19: + Operator Overload Successful
+Test 20: += Operator Overload Successful
+

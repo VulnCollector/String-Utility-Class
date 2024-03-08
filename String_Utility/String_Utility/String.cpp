@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "String.h"
 #include <iostream>
 #include <string>
@@ -89,7 +90,7 @@ String& String::Append(const String& _str)
 {
 	// add the second string onto the end of the first
 	int length = (int)strlen(str) + (int)strlen(_str.str);
-	strcat_s(str, length + 1, _str.str);
+	strcat(str, _str.str);
 	return *this;
 	
 }
@@ -98,7 +99,7 @@ String& String::Prepend(const String& _str)
 {
 	//add the first string onto the end of the second
 	int length = (int)strlen(str) + (int)strlen(_str.str);
-	strcat_s(_str.str, length + 1, str);
+	strcat(_str.str, str);
 	str = _str.str;
 	return *this;
 }
@@ -207,8 +208,10 @@ bool String::operator!=(const String& _other)
 String& String::operator=(const String& _str)
 {
 	//copy _str char array into this char array
+	
 	str = new char[_str.Length() + 1];
-	strcpy_s(str, this->Length() + 1, _str.str);
+	strcpy(str, _str.str);
+	
 	
 	return *this;
 		

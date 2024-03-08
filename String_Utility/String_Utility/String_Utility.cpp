@@ -217,7 +217,7 @@ int main()
     }
     else cout << "File not open.";
     file.close();
-
+    return 0;
 }
 
 size_t GetLength(const char* a) //testing Length Function
@@ -334,7 +334,7 @@ size_t StringFindIndex(const char* a, const char* b, int index) //testing Find F
 {
     
     String* str = new String(a);
-    size_t find = str->Find(index, b);
+    int find = str->Find(index, b);
     cout << find << endl;
     return find;
 }
