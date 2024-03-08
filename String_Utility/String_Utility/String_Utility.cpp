@@ -4,76 +4,222 @@
 #include <iostream>
 #include "String.h"
 #include <string>
+#include <fstream>
+#include <vector>
+#include <ctime>
 using namespace std;
 
-void GetLength(const char* a);
-void GetCharAt(const char * a, int index);
+size_t GetLength(const char* a);
+char GetCharAt(const char * a, int index);
 void ConstGetCharAt(const char* a, int index);
-void StringCompare(const char* a, const char* b);
-void StringAppend(const char* a, const char* b);
-void StringPrepend(const char* a, const char* b);
-void StringCstr(const char* a);
-void ToLower(const char* a);
-void ToUpper(const char* a);
-void StringFind(const char* a, const char* b);
-void StringFindIndex(const char* a, const char* b, int index);
-void StringReplace(const char* a, const char* b, const char* c);
-void ReadFromConsole();
-void WriteToConsole(const char* a);
-void Equals(const char* a, const char* b);
-void NotEquals(const char* a, const char* b);
-void StringAssign(const char* a, const char* b);
-void StringIndex(const char* a, int index);
+bool StringCompare(const char* a, const char* b);
+String StringAppend(const char* a, const char* b);
+String StringPrepend(const char* a, const char* b);
+char StringCstr(const char* a);
+String ToLower(const char* a);
+String ToUpper(const char* a);
+size_t StringFind(const char* a, const char* b);
+size_t StringFindIndex(const char* a, const char* b, int index);
+String StringReplace(const char* a, const char* b, const char* c);
+String ReadFromConsole();
+bool WriteToConsole(const char* a);
+bool Equals(const char* a, const char* b);
+bool NotEquals(const char* a, const char* b);
+bool StringAssign(const char* a, const char* b);
+char StringIndex(const char* a, int index);
 void ConstStringIndex(const char* a, int index);
-void LessThan(const char* a, const char* b);
-void Add(const char* a, const char* b);
-void PlusEquals(const char* a, const char* b);
+bool LessThan(const char* a, const char* b);
+String Add(const char* a, const char* b);
+bool PlusEquals(const char* a, const char* b);
 
 
 int main()
 {
+    vector<string> Tests = { 20, "" };
+    float Successful = 0.00f;
+
+    if (GetLength("Hello") == 5)
+    {
+        Successful += 5;
+        Tests[0] = "Test 1: Length Successful" + '\n';
+    }
+    else Tests[0] = "Test 1: Length Failed" + '\n';
+
+    if (GetCharAt("Hello", 4) == 'o')
+    {
+        Successful += 5;
+        Tests[1] = "Test 2: CharacterAt Successful" + '\n';
+    }
+    else Tests[1] = "Test 2: CharacterAt Failed" + '\n';
     
-    GetLength("Hello");
-    GetCharAt("Hello", 4);
-    ConstGetCharAt("Hello", 3);
-    StringCompare("Hello", "Hello");
-    StringAppend("Hello", "World");
-    StringPrepend("Hello", "World");
-    StringCstr("Hello");
-    ToLower("HELLO");
-    ToUpper("hello");
-    StringFind("Hello World", "World");
-    StringFindIndex("Hello World", "World", 8);
-    StringReplace("Hello World Hello World", "World", "Hello");
-    ReadFromConsole();
-    WriteToConsole("Hello World");
-    Equals("Hello", "Hello");
-    NotEquals("Hello", "World");
-    StringAssign("Hello", "World");
-    StringIndex("Hello", 4);
-    ConstStringIndex("Hello", 4);
-    LessThan("Hello", "World");
-    Add("Hello", "World");
-    PlusEquals("Hello", "World");
+    if (StringCompare("Hello", "Hello"))
+    {
+        Successful += 5;
+        Tests[2] = "Test 3: EqualTo Successful" + '\n';
+    }
+    else Tests[2] = "Test 3: EqualTo Successful" + '\n';
+
+    if (StringAppend("Hello", "World").CStr() == "HelloWorld")
+    {
+        Successful += 5;
+        Tests[3] = "Test 4: Append Successful" + '\n';
+    }
+    else Tests[3] = "Test 4: Append Failed" + '\n';
+
+    if (StringPrepend("Hello", "World").CStr() == "WorldHello")
+    {
+        Successful += 5;
+        Tests[4] = "Test 5: Prepend Successful" + '\n';
+    }
+    else Tests[4] = "Test 5: Prepend Failed" + '\n';
+
+    String* Hello = new String("Hello");
+    if (StringCstr("Hello") == *Hello->CStr())
+    {
+        Successful += 5;
+        Tests[5] = "Test 6: CStr Successful" + '\n';
+    }
+    else Tests[5] = "Test 6: CStr Failed" + '\n';
+
+    if (ToLower("HELLO") == "hello")
+    {
+        Successful += 5;
+        Tests[6] = "Test 7: ToLower Successful" + '\n';
+    }
+    else Tests[6] = "Test 7: ToLower Failed" + '\n';
+    
+    if (ToUpper("hello") == "HELLO")
+    {
+        Successful += 5;
+        Tests[7] = "Test 8: ToUpper Successful" + '\n';
+    }
+    else  Tests[7] = "Test 8: ToUpper Failed" + '\n';
+
+    if (StringFind("Hello World", "World") == 6)
+    {
+        Successful += 5;
+        Tests[8] = "Test 9: Find Successful" + '\n';
+    }
+    else Tests[8] = "Test 9: Find Failed" + '\n';
+    
+    if (StringFindIndex("Hello World", "World", 8) == -1)
+    {
+        Successful += 5;
+        Tests[9] = "Test 10: FindAtIndex Successful" + '\n';
+    }
+    else Tests[9] = "Test 10: FindAtIndex Failed" + '\n';
+
+    if (StringReplace("Hello World Hello World", "World", "Hello") == "Hello Hello Hello Hello")
+    {
+        Successful += 5;
+        Tests[10] = "Test 11: Replace Successful" + '\n';
+    }
+    else Tests[10] = "Test 11: Replace Failed" + '\n';
+
+    if (ReadFromConsole() != "")
+    {
+        Successful += 5;
+        Tests[11] = "Test 12: ReadFromConsole Successful" + '\n';
+    }
+    else Tests[11] = "Test 12: ReadFromConsole Failed" + '\n';
+
+    if (WriteToConsole("Hello World"))
+    {
+        Successful += 5;
+        Tests[12] = "Test 13: WriteToConsole Successful" + '\n';
+    }
+    else Tests[12] = "Test 13: WriteToConsole Failed" + '\n';
+
+    if (Equals("Hello", "Hello"))
+    {
+        Successful += 5;
+        Tests[13] = "Test 14: == Operator Overload Successful" + '\n';
+    }
+    else Tests[13] = "Test 14: == Operator Overload Failed" + '\n';
+    
+    if (NotEquals("Hello", "World"))
+    {
+        Successful += 5;
+        Tests[14] = "Test 15: != Operator Overload Successful" + '\n';
+    }
+    else Tests[14] = "Test 15: != Operator Overload Failed" + '\n';
+
+    if (StringAssign("Hello", "World"))
+    {
+        Successful += 5;
+        Tests[15] = "Test 16: = Operator Overload Successful" + '\n';
+    }
+    else Tests[15] = "Test 16: = Operator Overload Failed" + '\n';
+
+    if (StringIndex("Hello", 4) == 'o')
+    {
+        Successful += 5;
+        Tests[16] = "Test 17: [] Operator Overload Successful" + '\n';
+    }
+    else Tests[16] = "Test 17: [] Operator Overload Failed" + '\n';
+
+    if (LessThan("Hello", "World"))
+    {
+        Successful += 5;
+        Tests[17] = "Test 18: < Operator Overload Successful" + '\n';
+    }
+    else Tests[17] = "Test 18: < Operator Overload Failed" + '\n';
+
+    if (Add("Hello", "World") == "HelloWorld")
+    {
+        Successful += 5;
+        Tests[18] = "Test 19: + Operator Overload Successful" + '\n';
+    }
+    else Tests[18] = "Test 19: + Operator Overload Failed" + '\n';
+
+    if (PlusEquals("Hello", "World"))
+    {
+        Successful += 5;
+        Tests[19] = "Test 20: += Operator Overload Successful" + '\n';
+    }
+    else Tests[19] = "Test 20: += Operator Overload Failed" + '\n';
+
+    fstream file;
+
+    file.open("Tests.txt", ios_base::app);
+    struct tm newtime;
+    time_t now = time(0);
+    localtime_s(&newtime, &now);
+    
+    if (file.is_open())
+    {
+        file << "Date: " << newtime.tm_mday << "/" << 1 + newtime.tm_mon << "/" << 1900 + newtime.tm_year << " ";
+        file << "Time: " << 5 + newtime.tm_hour << ":" << 30 + newtime.tm_min << ":" << newtime.tm_sec << " ";
+        file << "Successful Tests: " << Successful << "%" << endl;
+
+        for (int i = 0; i < Tests.size(); i++)
+        {
+            file << Tests[i] << endl;
+        }
+
+    }
+    else cout << "File not open.";
+    file.close();
+
 }
 
-void GetLength(const char* a) //testing Length Function
+size_t GetLength(const char* a) //testing Length Function
 {
     
     String* str = new String(a);
     size_t length = str->Length();
     cout << length << endl;
-
+    return length;
     
 }
 
-void GetCharAt(const char* a, int index) //testing CharacterAt Function
+char GetCharAt(const char* a, int index) //testing CharacterAt Function
 {
    
     String* str = new String(a);
     char charAt = str->CharacterAt(index);
     cout << charAt << endl;
-
+    return charAt;
     
 }
 
@@ -87,7 +233,7 @@ void ConstGetCharAt(const char* a, int index)
     
 }
 
-void StringCompare(const char* a ,const char* b) //testing EqualTo Function
+bool StringCompare(const char* a ,const char* b) //testing EqualTo Function
 {
     
     String* str = new String(a);
@@ -96,16 +242,18 @@ void StringCompare(const char* a ,const char* b) //testing EqualTo Function
     if (compare)
     {
         cout << "true" << endl;
+        return true;
     }
     else
     {
         cout << "false" << endl;
+        return false;
     }
      
 
 }
 
-void StringAppend(const char* a, const char* b) //testing Append Function
+String StringAppend(const char* a, const char* b) //testing Append Function
 {
     
     String* str = new String(a);
@@ -114,11 +262,11 @@ void StringAppend(const char* a, const char* b) //testing Append Function
     
     
     cout << str->CStr() << endl;
-
+    return *str;
    
 }
 
-void StringPrepend(const char* a, const char* b) //testing Prepend Function
+String StringPrepend(const char* a, const char* b) //testing Prepend Function
 {
     
     String* str = new String(a);
@@ -127,48 +275,54 @@ void StringPrepend(const char* a, const char* b) //testing Prepend Function
 
 
     cout << str->CStr() << endl;
+    return *str;
 }
 
-void StringCstr(const char* a) //testing CStr Function
+char StringCstr(const char* a) //testing CStr Function
 {
    
     String* str = new String(a);
     cout << str->CStr() << endl;
+    return *str->CStr();
 }
 
-void ToLower(const char* a) //testing ToLower Function
+String ToLower(const char* a) //testing ToLower Function
 {
     
     String* str = new String(a);
     str->ToLower();
     cout << str->CStr() << endl;
+    return *str;
 }
 
-void ToUpper(const char* a) //testing ToUpper Function
+String ToUpper(const char* a) //testing ToUpper Function
 {
    
     String* str = new String(a);
     str->ToUpper();
     cout << str->CStr() << endl;
+    return *str;
 }
 
-void StringFind(const char* a, const char* b) //testing Find Function
+size_t StringFind(const char* a, const char* b) //testing Find Function
 {
    
     String* str = new String(a);
     size_t find = str->Find(b);
     cout << find << endl;
+    return find;
 }
 
-void StringFindIndex(const char* a, const char* b, int index) //testing Find Function with index
+size_t StringFindIndex(const char* a, const char* b, int index) //testing Find Function with index
 {
     
     String* str = new String(a);
-    int find = str->Find(index, b);
+    size_t find = str->Find(index, b);
     cout << find << endl;
+    return find;
 }
 
-void StringReplace(const char* a, const char* b, const char* c) //testing Replace Function
+String StringReplace(const char* a, const char* b, const char* c) //testing Replace Function
 {
     
     String* str = new String(a);
@@ -176,23 +330,30 @@ void StringReplace(const char* a, const char* b, const char* c) //testing Replac
     String* str3 = new String(c);
     str->Replace(*str2, *str3);
     cout << str->CStr() << endl;
+    return *str;
 }
 
-void ReadFromConsole() //testing ReadFromConsole Function
+String ReadFromConsole() //testing ReadFromConsole Function
 {
     String* str = new String();
     str->ReadFromConsole();
     cout << str->CStr() << endl;
+    return *str;
 }
 
-void WriteToConsole(const char* a) //testing WriteToConsole Function
+bool WriteToConsole(const char* a) //testing WriteToConsole Function
 {
     
     String* str = new String(a);
-    str->WriteToConsole();
+    if (str->WriteToConsole() == a)
+    {
+        return true;
+    }
+    else return false;
+    
 }
 
-void Equals(const char* a, const char* b) //testing == operator overload
+bool Equals(const char* a, const char* b) //testing == operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -200,14 +361,16 @@ void Equals(const char* a, const char* b) //testing == operator overload
     if (compare)
     {
         cout << "true" << endl;
+        return true;
     }
     else
     {
         cout << "false" << endl;
+        return false;
     }
 }
 
-void NotEquals(const char* a, const char* b) //testing != operator overload
+bool NotEquals(const char* a, const char* b) //testing != operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -215,36 +378,44 @@ void NotEquals(const char* a, const char* b) //testing != operator overload
     if (compare)
     {
         cout << "true" << endl;
+        return true;
     }
     else
     {
         cout << "false" << endl;
+        return false;
     }
 }
 
-void StringAssign(const char* a, const char* b) //testing = operator overload
+bool StringAssign(const char* a, const char* b) //testing = operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
     str = str2;
     cout << str->CStr() << endl;
+    if (str == str2)
+    {
+        return true;
+    }
+    else return false;
 }
 
-void StringIndex(const char* a, int index) //testing [] operator overload
+char StringIndex(const char* a, int index) //testing [] operator overload
 {
     String* str = new String(a);
     char charAt = (*str)[index];
-    cout << charAt << endl;;
+    cout << charAt << endl;
+    return charAt;
 }
 
 void ConstStringIndex(const char* a, int index)
 {
     String* str = new String(a);
     char charAt = (*str)[index];
-    cout << charAt << endl;;
+    cout << charAt << endl;
 }
 
-void LessThan(const char* a, const char* b) //testing < operator overload
+bool LessThan(const char* a, const char* b) //testing < operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
@@ -252,26 +423,34 @@ void LessThan(const char* a, const char* b) //testing < operator overload
     if (compare)
     {
         cout << "true" << endl;
+        return true;
     }
     else
     {
         cout << "false" << endl;
+        return false;
     }
 }
 
-void Add(const char* a, const char* b) //testing + operator overload
+String Add(const char* a, const char* b) //testing + operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
     String* str3 = new String();
     *str3 = (*str + *str2);
     cout << str3->CStr() << endl;
+    return *str3;
 }
 
-void PlusEquals(const char* a, const char* b) //testing += operator overload
+bool PlusEquals(const char* a, const char* b) //testing += operator overload
 {
     String* str = new String(a);
     String* str2 = new String(b);
     *str += *str2;
     cout << str->CStr() << endl;
+    if (*str == str->Append(*str2))
+    {
+        return true;
+    }
+    else return false;
 }
